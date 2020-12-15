@@ -19,12 +19,11 @@ pipeline {
 						}
 					}
 				    stage('run') {
-				    	//sh './gradle build'
-
+			    		sh 'nohup bash ./gradlew bootRun &'
 				    }
 				    stage('rest') {
 				    	//sh './gradle build'
-
+				    	sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
 				    }
 				    stage('nexus') {
 
