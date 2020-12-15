@@ -15,8 +15,9 @@ pipeline {
 		      	script {
 				    stage('iniciar') {
 				    	echo "iniciar"
-				    	print param.paramHerramienta;
-				    	if(param.paramHerramienta=="maven"){
+				    	print ${params.paramHerramienta};
+				    	String paramHerramienta = ${params.paramHerramienta};
+				    	if(paramHerramienta=="maven"){
 							def ejecucionMaven = load 'maven.groovy'
 							ejecucionMaven.call()
 			    		} else {
