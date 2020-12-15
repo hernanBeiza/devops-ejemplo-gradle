@@ -23,7 +23,7 @@ pipeline {
 				    }
 				    stage('rest') {
 				    	//sh './gradle build'
-				    	sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
+				    	sh "sleep 30 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
 				    }
 				    stage('nexus') {
 
