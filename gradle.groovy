@@ -5,6 +5,7 @@
 */
 
 def call(){
+	echo "call(); gradle.groovy";
   
 	stage('build & test') {
 		//Usar el gradlewrapper, incluido en el repo
