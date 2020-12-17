@@ -38,7 +38,7 @@ pipeline {
             slackSend channel: 'D01E5ED8TK2', color: 'good', message: mensajeExitoso, teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
         }
         failure {
-        	String mensajeError = 'Ejecución fallida ['+${env.CHANGE_AUTHOR_DISPLAY_NAME}']['+${env.JOB_NAME}+']['+${env.BUILD_TOOL}+'] en stage ['+${env.STAGE_NAME}']';
+        	String mensajeError = 'Ejecución fallida ['+${env.CHANGE_AUTHOR_DISPLAY_NAME}+']['+${env.JOB_NAME}+']['+${env.BUILD_TOOL}+'] en stage ['+${env.STAGE_NAME}']';
 
             slackSend channel: 'D01E5ED8TK2', color: 'danger', message: mensajeError, teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
         }
