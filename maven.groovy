@@ -30,15 +30,6 @@ def call(){
     stage('nexus') {
         nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: './build/DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '1.0.0']]]
 	}
-    //Manejar si el pipeline fue exitoso o fallido
-    post {
-        sucess {
-            slackSend channel: 'D01E5ED8TK2', color: 'good', message: 'Ejecución exitosa [${env.CHANGE_AUTHOR_DISPLAY_NAME}][${env.JOB_NAME}][${env.BUILD_TOOL}]', teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
-        }
-        failure {
-            slackSend channel: 'D01E5ED8TK2', color: 'danger', message: 'Ejecución fallida [${env.CHANGE_AUTHOR_DISPLAY_NAME}][${env.JOB_NAME}][${env.BUILD_TOOL}] en stage [${env.STAGE_NAME}]', teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
-        }
-    }
 }
 
 return this;
