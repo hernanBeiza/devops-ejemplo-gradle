@@ -33,7 +33,7 @@ pipeline {
 	}
     //Manejar si el pipeline fue exitoso o fallido
     post {
-        sucess {
+        success {
             slackSend channel: 'D01E5ED8TK2', color: 'good', message: 'Ejecución exitosa [${env.CHANGE_AUTHOR_DISPLAY_NAME}][${env.JOB_NAME}][${env.BUILD_TOOL}]', teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
         }
         failure {
