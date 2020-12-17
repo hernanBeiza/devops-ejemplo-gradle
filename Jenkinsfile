@@ -34,10 +34,13 @@ pipeline {
     //Manejar si el pipeline fue exitoso o fallido
     post {
         success {
-            slackSend channel: 'D01E5ED8TK2', color: 'good', message: 'Ejecución exitosa [${env.CHANGE_AUTHOR_DISPLAY_NAME}][${env.JOB_NAME}][${env.BUILD_TOOL}]', teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
+        	String mensajeExitoso = 'Ejecución exitosa ['+${env.CHANGE_AUTHOR_DISPLAY_NAME}+']['+${env.JOB_NAME}+']['+${env.BUILD_TOOL}']';
+            slackSend channel: 'D01E5ED8TK2', color: 'good', message: mensajeExitoso, teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
         }
         failure {
-            slackSend channel: 'D01E5ED8TK2', color: 'danger', message: 'Ejecución fallida [${env.CHANGE_AUTHOR_DISPLAY_NAME}][${env.JOB_NAME}][${env.BUILD_TOOL}] en stage [${env.STAGE_NAME}]', teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
+        	String mensajeError = 'Ejecución fallida ['+${env.CHANGE_AUTHOR_DISPLAY_NAME}']['+${env.JOB_NAME}+']['+${env.BUILD_TOOL}+'] en stage ['+${env.STAGE_NAME}']';
+
+            slackSend channel: 'D01E5ED8TK2', color: 'danger', message: mensajeError, teamDomain: 'dipdevopsusach2020', tokenCredentialId: 'jenkins-slack'
         }
     }
 
