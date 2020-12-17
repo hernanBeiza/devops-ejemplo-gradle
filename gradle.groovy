@@ -7,10 +7,6 @@
 def call(){
 	echo "call(); gradle.groovy";
 	
-	environment {
-	    BUILD_TOOL = 'gradle'
-    }
-
 	stage('build & test') {
 		//Usar el gradlewrapper, incluido en el repo
 		sh './gradlew clean build'

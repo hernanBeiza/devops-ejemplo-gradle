@@ -7,10 +7,6 @@
 def call(){
 	echo "call(); maven.groovy";
 
-    environment {
-        BUILD_TOOL = 'maven'
-    }
-
     stage('build & test') {
     	//Usar el gradlewrapper, incluido en el repo
     	sh "./mvnw clean package -e"
