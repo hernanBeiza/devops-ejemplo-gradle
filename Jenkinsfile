@@ -1,6 +1,5 @@
 pipeline {
 	agent any
-	/*
 	parameters {
     	choice(
 	        name: 'paramHerramienta',
@@ -8,7 +7,6 @@ pipeline {
 	        description: 'Parámetro que determinará si se ejecuta maven.groovy o gradle.groovy'
         )
 	}
-	*/
 	stages {
 		stage('Pipeline') {
 			steps {
